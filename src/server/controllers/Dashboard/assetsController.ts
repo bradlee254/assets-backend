@@ -48,7 +48,7 @@ class AssetController {
   // PUT /api/assets/:id
   static async update(req: Request, res: Response) {
     try {
-      const asset = await Asset.findById(req.params.id);
+      const asset = await Asset.find(req.params.id);
       if (!asset) return res.status(404).json({ message: 'Asset not found' });
 
       Object.assign(asset, req.body);
