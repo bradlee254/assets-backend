@@ -20,16 +20,16 @@ rb.prefix('/api').group((api: RouterBuilder) => {
   });
 
   api.prefix('/dashboard').middleware('auth').group((g: RouterBuilder) => {
-    g.get('/', DashboardController.getDashboardData);
+    g.get('/stats', 'can:view_dashboard', DashboardController.stats);
   });
 
   //asset
   api.prefix('/assets').middleware('auth').group((g: RouterBuilder) => {
-    g.get('/', AssetController.index);
-    g.get('/:id', AssetController.show);
-    g.post('/','can:create_assets', AssetController.store);
-    g.put('/:id','can:update_assets', AssetController.update);
-    g.delete('/:id','can:delete_assets', AssetController.destroy);
+    g.get('/', 'can:view_assets', AssetController.index);
+    g.get('/:id', 'can:view_assets', AssetController.show);
+    g.post('/', 'can:create_assets', AssetController.store);
+    g.put('/:id', 'can:update_assets', AssetController.update);
+    g.delete('/:id', 'can:delete_assets', AssetController.destroy);
   })
 
   api.prefix('/users').middleware('auth').group((g: RouterBuilder) => {

@@ -30,6 +30,8 @@ const PERMISSIONS: PermissionDef[] = [
   { slug: 'create_assets', name: 'Create Assets', description: 'Can create new assets' },
   { slug: 'update_assets', name: 'Update Assets', description: 'Can update existing assets' },
   { slug: 'delete_assets', name: 'Delete Assets', description: 'Can delete assets' },
+  // Dashboard
+  { slug: 'view_dashboard', name: 'View Dashboard', description: 'Can view dashboard statistics' },
 ];
 
 async function ensureAdminRole(): Promise<Role> {

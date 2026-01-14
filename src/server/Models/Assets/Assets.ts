@@ -7,7 +7,7 @@ export  class Asset extends Model{
     static primaryKey = 'id';
 
     static fillable = [
-        'name','type', 'category_id', 'status', 'department','assigned_to',
+        'name','type', 'category', 'status', 'department','assigned_to',
         'purchase_date', 'cost', 'active', 'created_at', 'updated_at', 'deleted_at'
     ];
     static hidden =[];
